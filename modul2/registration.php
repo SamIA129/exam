@@ -8,7 +8,7 @@ $password = trim(filter_var($_POST['password'], FILTER_SANITIZE_SPECIAL_CHARS));
 
 require_once "../mysql.php";
 
-$sql = 'INSERT INTO review(firstName, middleName, lastName, numberPhone, login, password) VALUES(?, ?)';
+$sql = 'INSERT INTO review(firstName, middleName, lastName, numberPhone, login, password) VALUES(?, ?, ?, ?, ?, ?)';
 $query = $pdo->prepare($sql);
 $query->execute([$firstName, $middleName, $lastName, $numberPhone, $login, $password]);
 
