@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style/index-style.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="registration">
+        <form action="" method="get">
+            <div>
+                <input type="text" required id="firstName" placeholder="Имя"><br>
+                <input type="text" required id="middleName" placeholder="Отчество"><br>
+                <input type="text" required id="lastName" placeholder="Фамилия"><br>
+                <input type="text" required id="numberPhone" placeholder="Номер телефона"><br>
+                <input type="text" required id="login" placeholder="Логин"><br>
+                <input type="password" required id="password" placeholder="Пароль">
+            </div>
+
+            <div>
+                <button>Регистрировать</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js%22%3E"></script>
+
+    <script>
+        $('#messand').onclik(function(){
+            let firstName = $('#firstName').val();
+            let middleName = $('#middleName').val();
+            let lastName = $('#lastName').val();
+            let numberPhone = $('#numberPhone').val();
+            let login = $('#login').val();
+            let password = $('#password').val();
+
+            $.ajax({
+                url: 'registration.php',
+                type: 'POST',
+                cache: false,
+                data: {
+                    'email': email,
+                    'message': message
+                },
+                dataType: 'html',
+                success: function(data) {
+                    if (data === "Done") {
+                        $("#messand").text("Ты умничка;)😸");
+                        $("#error_block").hide();
+                        $('#email').val("");
+                        $('#message').val("");
+                    } else {
+                        $("#error_block").show();
+                        $("#error_block").text(data);
+                    }
+                }
+            });
+        });
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js%22%3E"></script>
